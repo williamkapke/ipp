@@ -5,7 +5,7 @@ module.exports = {
 	parse: require('./lib/parser'),
 	request: require('./lib/request'),
 	versions: require('./lib/versions'),
-	//attributes: q(require('./lib/attributes')),
+	attributes: require('./lib/attributes'),
 	keywords: require('./lib/keywords'),
 	enums: require('./lib/enums'),
 	tags: require('./lib/tags'),
