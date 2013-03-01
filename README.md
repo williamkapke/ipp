@@ -1,16 +1,24 @@
 # Internet Printing Protocol (IPP) for nodejs
 ---
 
-This is a very indepth protocol that spans many RFCs- some of which are dead while others were herded into IPP/v2.x. It 
-will take a while to build this lib and definately needs community help.
+A pure Javascript implementation of the IPP/2.0 protocol that has no dependencies.
+
+The IPP protocol was started in the 90's and is still being worked on today. It is a very indepth protocol that spans many 
+RFCs- some of which are dead while others were herded into IPP/v2.x.
+
+There are millions of printers that support IPP. If you have one, this module will allow you to send/recieve data to/from 
+the printer.
+
+To find out if your printer supports IPP:
+
+1. Google your printer's specs
+2. Try: `telnet YOUR_PRINTER 631`. If it connects, that's a good sign.
+3. Use the ['/examples/findPrinters.js'](https://github.com/williamwicks/ipp/tree/master/examples/findPrinters.js) script.
 
 I have a pretty good starting point here. I created reference files 
-(<del>`attributes`</del>, `enums`, `keywords`, `operations`, `status-codes`, `versions` and `tags`) and tried to include as many 
+(`attributes`, `enums`, `keywords`, `operations`, `status-codes`, `versions` and `tags`) and tried to include as many 
 links in the comments to the ref docs as I could.
 
-IPP uses a confusing/complicated/custom binary serialization IMHO that dates back to the lates '90s. After 15 years of 
-building this protocol- I the technologies available today could simplified things 10X (again IMO). But it is what is 
-deployed on millions of printers now- so we'll work with it.
 
 ### Install
 ```bash
@@ -18,9 +26,53 @@ $ npm install ipp
 ```
 
 
+## Printer(url [,options])
+```javascript
+var ipp = require('ipp');
+var PDFDocument = require('pdfkit');
+
+//make a PDF document
+var doc = new PDFDocument({margin:0});
+doc.text(".", 0, 780);
+
+doc.output(function(pdf){
+	var printer = ipp.Printer("http://NPI977E4E.local.:631/ipp/printer");
+	var msg = {
+		"operation-attributes-tag": {
+			"requesting-user-name": "William",
+			"job-name": "My Test Job",
+			"document-format": "application/pdf"
+		},
+		data: pdf
+	};
+	printer.execute("Print-Job", msg, function(err, res){
+		console.log(res);
+	});
+});
+```
+
+To interact with a printer, create a `Printer` object.
+
+**options:**
+* `charset` - Specifies the value for the 'attributes-charset' attribute of requests. Defaults to `utf-8`.
+* `language` - Specifies the value for the 'attributes-natural-language' attribute of requests. Defaults to `en-us`.
+* `uri` - Specifies the value for the 'printer-uri' attribute of requests. Defaults to `ipp://+url.host+url.path`.
+* `version` - Specifies the value for the 'version' attribute of requests. Defaults to `2.0`.
+
+
+
+
+
+### printer.execute(operation, message, callback)
+Executes an IPP operation on the Printer object.
+
+* 'operation' - There are many operations defined by IPP. See: [/lib/operations.js](https://github.com/williamwicks/ipp/blob/master/lib/operations.js).
+* 'message - A javascript object to be serealized into an IPP binary message.
+* 'callback(err, response)' - A function to callback with the Printer's response.
+
 ## ipp.parse(buffer)
 
-My first goal was to create a parser...
+Parses a binary IPP message into a javascript object tree.
 
 ```javascript
 var ipp = require('ipp');

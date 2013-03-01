@@ -3,7 +3,9 @@ var util = require('./lib/ipputil');
 
 module.exports = {
 	parse: require('./lib/parser'),
+	serialize: require('./lib/serializer'),
 	request: require('./lib/request'),
+	Printer: require('./lib/printer'),
 	versions: require('./lib/versions'),
 	attributes: require('./lib/attributes'),
 	keywords: require('./lib/keywords'),

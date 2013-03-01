@@ -1,6 +1,6 @@
 {
 	"name": "ipp",
-	"version": "0.0.3",
+	"version": "0.0.4",
 	"description": "Internet Printing Protocol (IPP) for nodejs",
 	"keywords": ["ipp", "print", "printing"],
 	"homepage": "http://github.com/williamwicks/ipp",
@@ -13,7 +13,8 @@
 		"email" : "wjwicks@gmail.com"
 	},
 	"devDependencies": {
-		"vows":"*"
+		"mdns":"*",
+		"pdfkit":"*"
 	},
 	"main": "ipp.js",
 	"engines": {
