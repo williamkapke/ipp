@@ -11,9 +11,9 @@ module.exports = {
 	keywords: require('./lib/keywords'),
 	enums: require('./lib/enums'),
 	tags: require('./lib/tags'),
-	operations: require('./lib/operations'),
 	statusCodes: require('./lib/status-codes')
 };
+module.exports.operations = module.exports.enums['operations-supported'];
 module.exports.attribute = {
 	//http://www.iana.org/assignments/ipp-registrations/ipp-registrations.xml#ipp-registrations-7
 	groups: util.xref(module.exports.tags.lookup.slice(0x00, 0x0F)),
