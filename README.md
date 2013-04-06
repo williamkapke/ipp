@@ -53,6 +53,10 @@ doc.output(function(pdf){
 
 To interact with a printer, create a `Printer` object.
 
+> Technically speaking: a `Printer` object does not need to be an actual printer. According to the IPP spec, it
+> could be any endpoint that accepts IPP messages. For example; the IPP object __could__ be persistant media- like a
+> CD ROM, hard drive, thumb drive, ...etc.
+
 **options:**
 * `charset` - Specifies the value for the 'attributes-charset' attribute of requests. Defaults to `utf-8`.
 * `language` - Specifies the value for the 'attributes-natural-language' attribute of requests. Defaults to `en-us`.
