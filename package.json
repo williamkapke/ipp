@@ -13,7 +13,7 @@
 		"email" : "wjwicks@gmail.com"
 	},
 	"devDependencies": {
-		"mdns":"*",
+		"mdns2":"*",
 		"pdfkit":"*"
 	},
 	"main": "ipp.js",
