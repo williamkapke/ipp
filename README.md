@@ -136,6 +136,9 @@ ipp.request(uri, data, function(err, res){
 //  ta-da!.. hopefully you'll see a ton of stuff from your printer
 ```
 
+## Browser Support?
+See [this thread](https://github.com/williamkapke/ipp/issues/3)
+
 ## License
 
 MIT
