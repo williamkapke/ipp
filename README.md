@@ -13,7 +13,7 @@ To find out if your printer supports IPP:
 
 * Google your printer's specs
 * Try: `telnet YOUR_PRINTER 631`. If it connects, that's a good sign.
-* Use the ['/examples/findPrinters.js'](https://github.com/williamwicks/ipp/tree/master/examples/findPrinters.js) script.
+* Use the ['/examples/findPrinters.js'](https://github.com/williamkapke/ipp/tree/master/examples/findPrinters.js) script.
 
 I have a pretty good starting point here. I created reference files 
 (`attributes`, `enums`, `keywords`, `operations`, `status-codes`, `versions` and `tags`) and tried to include as many 
@@ -70,7 +70,7 @@ To interact with a printer, create a `Printer` object.
 ### printer.execute(operation, message, callback)
 Executes an IPP operation on the Printer object.
 
-* 'operation' - There are many operations defined by IPP. See: [/lib/enums.js](https://github.com/williamwicks/ipp/blob/master/lib/enums.js#L52).
+* 'operation' - There are many operations defined by IPP. See: [/lib/enums.js](https://github.com/williamkapke/ipp/blob/master/lib/enums.js#L52).
 * 'message - A javascript object to be serealized into an IPP binary message.
 * 'callback(err, response)' - A function to callback with the Printer's response.
 

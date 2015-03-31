@@ -1,16 +1,16 @@
 {
 	"name": "ipp",
-	"version": "0.0.7",
+	"version": "0.0.8",
 	"description": "Internet Printing Protocol (IPP) for nodejs",
 	"keywords": ["ipp", "print", "printing"],
-	"homepage": "http://github.com/williamwicks/ipp",
+	"homepage": "http://github.com/williamkapke/ipp",
 	"repository": {
 		"type": "git",
-		"url": "https://github.com/williamwicks/ipp.git"
+		"url": "https://github.com/williamkapke/ipp.git"
 	},
 	"author"  : {
-		"name"  : "William Wicks",
-		"email" : "wjwicks@gmail.com"
+		"name"  : "William Kapke",
+		"email" : "william.kapke@gmail.com"
 	},
 	"devDependencies": {
 		"mdns2":"*",
