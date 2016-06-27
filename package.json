@@ -4,6 +4,9 @@
 	"description": "Internet Printing Protocol (IPP) for nodejs",
 	"keywords": ["ipp", "print", "printing"],
 	"homepage": "http://github.com/williamkapke/ipp",
+	"publishConfig": {
+    "registry": "http://plossys.artifactoryonline.com/plossys/api/npm/npm-local"
+  },
 	"repository": {
 		"type": "git",
 		"url": "https://github.com/williamkapke/ipp.git"
