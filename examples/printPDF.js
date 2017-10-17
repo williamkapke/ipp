@@ -15,6 +15,9 @@ doc.pipe(concat(function (data) {
 			"document-format": "application/pdf"
 		},
 		"job-attributes-tag":{
+      "media-col": {
+        "media-source": "tray-2"
+      }
 		}
 		, data: data
 	};
