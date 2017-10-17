@@ -1,5 +1,5 @@
 
-var mdns = require('mdns2'),
+var mdns = require('mdns'),
 	browser  = mdns.createBrowser(mdns.tcp('ipp'));
 
 browser.on('serviceUp', function (rec) {
