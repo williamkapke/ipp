@@ -2,11 +2,7 @@
   "name": "ipp",
   "version": "2.0.0",
   "description": "Internet Printing Protocol (IPP) for nodejs",
-  "keywords": [
-    "ipp",
-    "print",
-    "printing"
-  ],
+  "keywords": ["ipp", "print", "printing"],
   "scripts": {
     "bot": "bot",
     "release": "bot release && npm publish",
@@ -36,8 +32,7 @@
     "@sealsystems/eslint-config-es": "1.0.0",
     "assertthat": "0.11.0",
     "concat-stream": "1.6.0",
-    "mdns": "^2.3.3",
-    "pdfkit": "^0.8.3",
+    "pdfkit": "0.8.3",
     "roboter": "0.15.4",
     "roboter-server": "0.15.4"
   },
