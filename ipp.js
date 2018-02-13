@@ -12,7 +12,7 @@ module.exports = {
   keywords: require('./lib/keywords'),
   enums: require('./lib/enums'),
   tags: require('./lib/tags'),
-  statusCodes: require('./lib/status-codes')
+  statusCodes: require('./lib/statusCodes')
 };
 module.exports.operations = module.exports.enums['operations-supported'];
 module.exports.attribute = {

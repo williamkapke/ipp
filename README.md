@@ -18,7 +18,7 @@ To find out if your printer supports IPP:
 * Use the ['/examples/findPrinters.js'](https://github.com/williamkapke/ipp/tree/master/examples/findPrinters.js) script.
 
 I have a pretty good starting point here. I created reference files
-(`attributes`, `enums`, `keywords`, `operations`, `status-codes`, `versions` and `tags`) and tried to include as many
+(`attributes`, `enums`, `keywords`, `operations`, `statusCodes`, `versions` and `tags`) and tried to include as many
 links in the comments to the ref docs as I could.
 
 ### Install
