@@ -1,34 +1,51 @@
 {
-	"name": "ipp",
-	"version": "2.0.0",
-	"description": "Internet Printing Protocol (IPP) for nodejs",
-	"keywords": [
-		"ipp",
-		"print",
-		"printing"
-	],
-	"homepage": "http://github.com/williamkapke/ipp",
-	"repository": {
-		"type": "git",
-		"url": "https://github.com/williamkapke/ipp.git"
-	},
-	"author": {
-		"name": "William Kapke",
-		"email": "william.kapke@gmail.com"
-	},
-	"devDependencies": {
-		"concat-stream": "^1.6.0",
-		"mdns": "^2.3.3",
-		"pdfkit": "^0.8.3"
-	},
-	"main": "ipp.js",
-	"engines": {
-		"node": "<4.0.0"
-	},
-	"licenses": [
-		{
-			"type": "MIT",
-			"url": "http://www.opensource.org/licenses/MIT"
-		}
-	]
+  "name": "ipp",
+  "version": "2.0.0",
+  "description": "Internet Printing Protocol (IPP) for nodejs",
+  "keywords": [
+    "ipp",
+    "print",
+    "printing"
+  ],
+  "scripts": {
+    "bot": "bot",
+    "release": "bot release && npm publish",
+    "release-minor": "bot release --type minor && npm publish",
+    "release-major": "bot release --type major && npm publish",
+    "test": "bot test-units",
+    "coverage": "istanbul cover _mocha -- --recursive --ui tdd ",
+    "report": "npm run coverage && if [[ $OSTYPE == darwin* ]]; then open=open; else open=xdg-open; fi && $open coverage/lcov-report/index.html"
+  },
+  "homepage": "http://github.com/sealsystems/node-ipp",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/sealsystems/node-ipp.git"
+  },
+  "author": [
+    {
+      "name": "William Kapke",
+      "email": "william.kapke@gmail.com"
+    },
+    {
+      "name": "SEAL Systems AG",
+      "email": "opensource@sealsystems.de",
+      "url": "https://www.sealsystems.de"
+    }
+  ],
+  "devDependencies": {
+    "@sealsystems/eslint-config-es": "1.0.0",
+    "assertthat": "0.11.0",
+    "concat-stream": "1.6.0",
+    "mdns": "^2.3.3",
+    "pdfkit": "^0.8.3",
+    "roboter": "0.15.4",
+    "roboter-server": "0.15.4"
+  },
+  "main": "ipp.js",
+  "licenses": [
+    {
+      "type": "MIT",
+      "url": "http://www.opensource.org/licenses/MIT"
+    }
+  ]
 }

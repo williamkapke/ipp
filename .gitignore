@@ -1,4 +1,25 @@
+# Node.js
+node_modules/
+npm-debug.log
+package-lock.json
+
+# Coverage
+coverage/
+
+# VS Code
+.vscode
+
+# IntelliJ
 .idea
+*.iml
+
+# Vi
+*.swp
+*~
+
+# OS X generated files and folders
 .DS_Store
-node_modules
-scratch.js
+
+# Miscs
+*.stat
+*.log

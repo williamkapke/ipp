@@ -1,0 +1,26 @@
+################################################################################
+# OPEN SOURCE MODULE
+# Remove the comment if you changed the build scripts!
+################################################################################
+
+version: "{build}"
+
+# Uncomment to debug via RDP
+# init:
+#   - ps: iex ((new-object net.webclient).DownloadString('https://raw.githubusercontent.com/appveyor/ci/master/scripts/enable-rdp.ps1'))
+#
+# on_finish:
+#   - ps: $blockRdp = $true; iex ((new-object net.webclient).DownloadString('https://raw.githubusercontent.com/appveyor/ci/master/scripts/enable-rdp.ps1'))
+
+environment:
+  NODE_VERSION: 8.9.4
+
+install:
+  - ps: Install-Product node $env:NODE_VERSION x64
+  - npm install -g roboter-cli
+  - npm install
+
+build: off
+
+test_script:
+  - npm run bot
