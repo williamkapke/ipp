@@ -6,8 +6,8 @@
   "scripts": {
     "bot": "bot",
     "release": "bot release && npm publish",
-    "release-minor": "bot release --type minor && npm publish",
-    "release-major": "bot release --type major && npm publish",
+    "release-minor": "bot release --type minor && npm publish --access public",
+    "release-major": "bot release --type major && npm publish --access public",
     "test": "bot test-units",
     "coverage": "istanbul cover _mocha -- --recursive --ui tdd ",
     "report": "npm run coverage && if [[ $OSTYPE == darwin* ]]; then open=open; else open=xdg-open; fi && $open coverage/lcov-report/index.html"
