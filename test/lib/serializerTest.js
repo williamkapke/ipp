@@ -4,7 +4,7 @@ const PassThrough = require('stream').PassThrough;
 
 const assert = require('assertthat');
 
-const ipp = require('../../ipp');
+const serializer = require('../../lib/serializer');
 
 const assertBufferEqual = function (buf1, buf2) {
   assert.that(buf1.length).is.equalTo(buf2.length);
@@ -34,13 +34,13 @@ suite('serializer', () => {
     done();
   });
 
-  test('is an object', (done) => {
-    assert.that(ipp).is.ofType('object');
+  test('is a function', (done) => {
+    assert.that(serializer).is.ofType('function');
     done();
   });
 
   test('returns buffer', (done) => {
-    const buf = ipp.serialize(msg);
+    const buf = serializer(msg);
 
     assertBufferEqual(buf, result);
     done();
@@ -51,7 +51,7 @@ suite('serializer', () => {
 
     msg.data.write('huhu');
 
-    const buf = ipp.serialize(msg);
+    const buf = serializer(msg);
 
     assertBufferEqual(buf, result);
     done();
@@ -60,11 +60,21 @@ suite('serializer', () => {
   test('adds buffer data', (done) => {
     msg.data = Buffer.from('abc', 'ascii');
 
-    const buf = ipp.serialize(msg);
+    const buf = serializer(msg);
     const resultWithData = Buffer.concat([result, msg.data]);
 
     assert.that(buf.length).is.equalTo(result.length + 3);
     assertBufferEqual(buf, resultWithData);
+    done();
+  });
+
+  test('throws error if data if neither stream nor buffer', (done) => {
+    msg.data = 'wrong!';
+
+    assert.that(() => {
+      serializer(msg);
+    }).is.throwing('Data must be a Buffer or a stream.Readable.');
+
     done();
   });
 });
