@@ -1,5 +1,6 @@
 # @sealsystems/ipp - Internet Printing Protocol (IPP) for Node.js
 
+[![NPM](https://img.shields.io/npm/v/@sealsystems/ipp.svg)](https://www.npmjs.com/package/@sealsystems/ipp)
 [![CircleCI](https://circleci.com/gh/sealsystems/node-ipp.svg?style=svg)](https://circleci.com/gh/sealsystems/node-ipp)
 [![Build status](https://ci.appveyor.com/api/projects/status/vl62lopukvo2lyd0?svg=true)](https://ci.appveyor.com/project/StefanScherer/node-ipp)
 
