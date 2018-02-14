@@ -1,4 +1,4 @@
-# Internet Printing Protocol (IPP) for nodejs
+# @sealsystems/ipp - Internet Printing Protocol (IPP) for Node.js
 
 [![CircleCI](https://circleci.com/gh/sealsystems/node-ipp.svg?style=svg)](https://circleci.com/gh/sealsystems/node-ipp)
 [![Build status](https://ci.appveyor.com/api/projects/status/vl62lopukvo2lyd0?svg=true)](https://ci.appveyor.com/project/StefanScherer/node-ipp)
@@ -24,13 +24,13 @@ links in the comments to the ref docs as I could.
 ### Install
 
 ```bash
-$ npm install ipp
+$ npm install @sealsystems/ipp
 ```
 
 ## Printer(url [,options])
 
 ```javascript
-var ipp = require('ipp');
+var ipp = require('@sealsystems/ipp');
 var PDFDocument = require('pdfkit');
 
 //make a PDF document
@@ -79,7 +79,7 @@ Executes an IPP operation on the Printer object.
 Parses a binary IPP message into a javascript object tree.
 
 ```javascript
-var ipp = require('ipp');
+var ipp = require('@sealsystems/ipp');
 var data = new Buffer(
   '0200' + //version 2.0
   '000B' + //Get-Printer-Attributes
@@ -118,7 +118,7 @@ See [request](#request) for example.
 Makes an IPP request to a url.
 
 ```javascript
-var ipp = require('ipp');
+var ipp = require('@sealsystems/ipp');
 var uri = 'your_printer';
 var data = ipp.serialize({
   operation: 'Get-Printer-Attributes',
@@ -137,10 +137,6 @@ ipp.request(uri, data, function(err, res) {
 });
 //  ta-da!.. hopefully you'll see a ton of stuff from your printer
 ```
-
-## Browser Support?
-
-See [this thread](https://github.com/williamkapke/ipp/issues/3)
 
 ## License
 

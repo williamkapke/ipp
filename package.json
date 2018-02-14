@@ -1,12 +1,8 @@
 {
-  "name": "ipp",
+  "name": "@sealsystems/ipp",
   "version": "2.0.0",
   "description": "Internet Printing Protocol (IPP) for nodejs",
-  "keywords": [
-    "ipp",
-    "print",
-    "printing"
-  ],
+  "keywords": ["ipp", "print", "printing"],
   "scripts": {
     "bot": "bot",
     "release": "bot release && npm publish",
