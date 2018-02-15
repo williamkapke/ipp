@@ -17,7 +17,7 @@
     "type": "git",
     "url": "https://github.com/sealsystems/node-ipp.git"
   },
-  "author": [
+  "contributors": [
     {
       "name": "William Kapke",
       "email": "william.kapke@gmail.com"
@@ -32,7 +32,10 @@
     "@sealsystems/eslint-config-es": "1.1.1",
     "assertthat": "1.0.0",
     "concat-stream": "1.6.0",
+    "express": "4.16.2",
+    "freeport": "1.0.5",
     "pdfkit": "0.8.3",
+    "raw-body": "2.3.2",
     "roboter": "0.16.0",
     "roboter-server": "0.16.0"
   },
