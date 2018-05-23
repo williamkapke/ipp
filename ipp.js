@@ -12,7 +12,8 @@ module.exports = {
   keywords: require('./lib/keywords'),
   enums: require('./lib/enums'),
   tags: require('./lib/tags'),
-  statusCodes: require('./lib/statusCodes')
+  statusCodes: require('./lib/statusCodes'),
+  StreamParser: require('./lib/StreamParser')
 };
 module.exports.operations = module.exports.enums['operations-supported'];
 module.exports.attribute = {

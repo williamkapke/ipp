@@ -2,7 +2,7 @@
 
 const assert = require('assertthat');
 
-const printer = require('../../lib/printer.js');
+const printer = require('../../lib/printer');
 
 suite('printer', () => {
   test('is a function', (done) => {

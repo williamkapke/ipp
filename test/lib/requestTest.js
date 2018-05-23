@@ -70,6 +70,7 @@ suite('request', () => {
 
     app.post('/jobs/:job', (req, res) => {
       assert.that(req.params.job).is.equalTo('06acd811-fe8a-407f-9fd3-628f0c23c1d8');
+      assert.that(req.headers['transfer-encoding']).is.equalTo('chunked');
       rawBody(req, {}, (errBody, body) => {
         assert.that(errBody).is.null();
         assertBufferEqual(body, reqBuf);
@@ -94,6 +95,7 @@ suite('request', () => {
 
     app.post('/jobs/:job', (req, res) => {
       assert.that(req.params.job).is.equalTo('06acd811-fe8a-407f-9fd3-628f0c23c1d8');
+      assert.that(req.headers['transfer-encoding']).is.equalTo('chunked');
       rawBody(req, {}, (errBody, body) => {
         assert.that(errBody).is.null();
         assertBufferEqual(body, reqBuf);

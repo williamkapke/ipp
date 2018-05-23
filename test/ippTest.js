@@ -44,4 +44,11 @@ suite('ipp', () => {
       done();
     });
   });
+
+  suite('ipp.StreamParser', () => {
+    test('is a function', (done) => {
+      assert.that(ipp.StreamParser).is.ofType('function');
+      done();
+    });
+  });
 });
