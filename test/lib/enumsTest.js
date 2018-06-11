@@ -45,6 +45,37 @@ suite('enums', () => {
       assert.that(enums['operations-supported']['Startup-All-Printers']).is.equalTo(0x64);
       done();
     });
+    test('CUPS-Get-Default is undefined', (done) => {
+      assert.that(enums['operations-supported']['CUPS-Get-Default']).is.undefined();
+      done();
+    });
+    test('lookup returns undefined for operation greater 0x64', (done) => {
+      assert.that(enums['operations-supported'].lookup[0x4001]).is.undefined();
+      done();
+    });
+  });
+
+  suite('cups-operations-supported', () => {
+    test('is an object', (done) => {
+      assert.that(enums['cups-operations-supported']).is.ofType('object');
+      done();
+    });
+    test('CUPS-Get-Default is 0x4001', (done) => {
+      assert.that(enums['cups-operations-supported']['CUPS-Get-Default']).is.equalTo(0x4001);
+      done();
+    });
+    test('CUPS-Get-Printers is 0x4002', (done) => {
+      assert.that(enums['cups-operations-supported']['CUPS-Get-Printers']).is.equalTo(0x4002);
+      done();
+    });
+    test('CUPS-Move-Job is 0x400d', (done) => {
+      assert.that(enums['cups-operations-supported']['CUPS-Move-Job']).is.equalTo(0x400d);
+      done();
+    });
+    test('CUPS-Create-Local-Printer is 0x4028', (done) => {
+      assert.that(enums['cups-operations-supported']['CUPS-Create-Local-Printer']).is.equalTo(0x4028);
+      done();
+    });
   });
 
   suite('job-collation-type', () => {
