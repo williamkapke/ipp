@@ -35,11 +35,11 @@
   "devDependencies": {
     "@sealsystems/eslint-config-es": "1.1.1",
     "assertthat": "1.0.0",
-    "concat-stream": "1.6.0",
-    "express": "4.16.2",
+    "concat-stream": "1.6.2",
+    "express": "4.16.3",
     "freeport": "1.0.5",
     "pdfkit": "0.8.3",
-    "raw-body": "2.3.2",
+    "raw-body": "2.3.3",
     "roboter": "0.16.0",
     "roboter-server": "0.16.0"
   },
