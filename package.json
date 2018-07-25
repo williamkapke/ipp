@@ -41,6 +41,7 @@
     "pdfkit": "0.8.3",
     "raw-body": "2.3.3",
     "roboter": "0.16.0",
+    "roboter-cli": "^0.3.1",
     "roboter-server": "0.16.0"
   },
   "main": "ipp.js",
