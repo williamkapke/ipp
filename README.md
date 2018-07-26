@@ -139,6 +139,23 @@ ipp.request(uri, data, function(err, res) {
 //  ta-da!.. hopefully you'll see a ton of stuff from your printer
 ```
 
+## Basic Auth
+
+If you have to connect to an IPP printer or server that requires Basic Authentication you can add `auth` to the options.
+
+```javascript
+const ipp = require('@sealsystems/ipp');
+const uri = 'your_printer';
+const opts = parseurl(uri);
+opts.auth = 'admin:secr3t';
+ipp.request(opts, data, function(err, res) {
+  if (err) {
+    return console.log(err);
+  }
+  console.log(JSON.stringify(res, null, 2));
+});
+```
+
 ## License
 
 MIT
