@@ -38,7 +38,7 @@ suite('StreamParser', () => {
     streamParser.end();
   });
 
-  test('returns error if tag is unknown', (done) => {
+  test('returns error if tag is not supported', (done) => {
     /* eslint-disable line-comment-position */
     /* eslint-disable no-inline-comments */
     const data = Buffer.from(
@@ -46,8 +46,8 @@ suite('StreamParser', () => {
       '000B' + // Get-Printer-Attributes
       '00000001' + // reqid
       '01' + // operation-attributes-tag
-      // unknown attribute
-      '1300000000',
+      // unsupported attribute
+      '1400000000',
       'hex'
     );
     /* eslint-enable line-comment-position */
@@ -67,6 +67,42 @@ suite('StreamParser', () => {
     streamParser.once('error', (err) => {
       assert.that(err.message).is.startingWith('The spec is not clear');
       done();
+    });
+
+    streamParser.write(data);
+    streamParser.end();
+  });
+
+  test('returns no data if tag is unknown', (done) => {
+    /* eslint-disable line-comment-position */
+    /* eslint-disable no-inline-comments */
+    const data = Buffer.from(
+      '0200' + // version 2.0
+      '000B' + // Get-Printer-Attributes
+      '00000001' + // reqid
+      '01' + // operation-attributes-tag
+      // unknown attribute
+      '1200147072696e7465722d67656f2d6c6f636174696f6e0000',
+      'hex'
+    );
+    /* eslint-enable line-comment-position */
+    /* eslint-enable no-inline-comments */
+
+    const streamParser = new StreamParser();
+    let dataEmitted = false;
+
+    streamParser.once('attributes', () => {
+      assert.that('the attributes').is.equalTo('should not be emitted');
+    });
+    streamParser.on('data', () => {
+      dataEmitted = true;
+    });
+    streamParser.once('end', () => {
+      assert.that(dataEmitted).is.equalTo(false);
+      done();
+    });
+    streamParser.once('error', (err) => {
+      assert.that(err.message).is.startingWith('This should not happen.');
     });
 
     streamParser.write(data);
