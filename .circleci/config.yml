@@ -1,0 +1,43 @@
+################################################################################
+# OPEN SOURCE MODULE
+# Remove the comment if you changed the build scripts!
+################################################################################
+
+version: 2
+
+jobs:
+  test:
+    docker:
+      - image: circleci/node:8.9.4
+
+    steps:
+      - checkout
+      - restore_cache:
+          key: dependency-cache-{{ checksum "package.json" }}
+      - run:
+          name: Install dependencies
+          command: |
+            if [ ! -d ./node_modules ]; then
+              npm install
+              npm install --no-save roboter-cli
+            fi
+      - save_cache:
+          key: dependency-cache-{{ checksum "package.json" }}
+          paths:
+            - ./node_modules
+      - run:
+          name: Run tests
+          command: npm run bot
+      - run:
+          name: Run code coverage
+          command: npm run coverage
+      - store_artifacts:
+          path: coverage/lcov-report
+          destination: coverage
+
+workflows:
+  version: 2
+
+  test:
+    jobs:
+      - test
