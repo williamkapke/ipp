@@ -4,22 +4,12 @@ npm-debug.log
 package-lock.json
 
 # Coverage
+.nyc_output/
 coverage/
-
-# VS Code
-.vscode
-
-# IntelliJ
-.idea
-*.iml
 
 # Vi
 *.swp
 *~
 
-# OS X generated files and folders
+# MacOS
 .DS_Store
-
-# Miscs
-*.stat
-*.log
