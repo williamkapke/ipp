@@ -9,9 +9,7 @@
   ],
   "scripts": {
     "bot": "bot",
-    "release": "npm run bot release && npm publish",
-    "release-minor": "npm run bot release --type minor && npm publish",
-    "release-major": "npm run bot release --type major && npm publish",
+    "release": "semantic-release --branch ${CIRCLE_BRANCH}",
     "test": "npm run bot test-units",
     "coverage": "nyc --reporter=text --reporter=lcov mocha",
     "report": "npm run coverage && if [[ $OSTYPE == darwin* ]]; then open=open; else open=xdg-open; fi && $open coverage/lcov-report/index.html"
