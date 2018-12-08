@@ -75,6 +75,7 @@ workflows:
             branches:
               ignore:
                 - master
+                - sealsystems
                 # bugfix banches (e.g. 1.2.x)
                 - /\d+\.\d+\.x/
 
@@ -86,6 +87,7 @@ workflows:
             branches:
               only:
                 - master
+                - sealsystems
                 # bugfix release banches (e.g. 1.2.x)
                 - /\d+\.\d+\.x/
       - release:
