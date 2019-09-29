@@ -1,0 +1,38 @@
+version: 1
+update_configs:
+  # Update package.json
+  - package_manager: "javascript"
+    directory: "/"
+    update_schedule: "live"
+    version_requirement_updates: "increase_versions"
+    default_reviewers:
+      - "seal-mis"
+    commit_message:
+      prefix: "chore"
+      prefix_development: "no-release"
+      include_scope: true
+    allowed_updates:
+      # Trigger all updates for dependencies by default
+      - match:
+          dependency_type: "direct"
+          update_type: "all"
+    ignored_updates:
+      - match:
+          dependency_name: "@sealsystems/consul"
+      - match:
+          dependency_name: "@sealsystems/seal-consul"
+      - match:
+          dependency_name: "seal-consul"
+    automerged_updates:
+      # Auto-merge minor version updates for `seal-…` dependencies
+      - match:
+          dependency_name: "seal-*"
+          update_type: "semver:minor"
+      # Auto-merge minor version updates for `@sealsystems/…-` dependencies
+      - match:
+          dependency_name: "@sealsystems/*"
+          update_type: "semver:minor"
+      # Auto-merge all updates for devDependencies
+      - match:
+          dependency_type: "development"
+          update_type: "all"
