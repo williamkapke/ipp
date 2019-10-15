@@ -103,4 +103,33 @@ suite('parser', () => {
     });
     done();
   });
+
+  test('can parse CUPS-Get-Printers', (done) => {
+    /* eslint-disable line-comment-position */
+    /* eslint-disable no-inline-comments */
+    const data = Buffer.from(
+      '0200' + // version 2.0
+      '4002' + // CUPS-Get-Printers
+      '00000001' + // reqid
+      '01' + // operation-attributes-tag
+        // blah blah the required bloat of this protocol
+        '470012617474726962757465732d6368617273657400057574662d3848001b617474726962757465732d6e61747572616c2d6c616e67756167650002656e' +
+        '03', // end-of-attributes-tag
+      'hex'
+    );
+    /* eslint-enable line-comment-position */
+    /* eslint-enable no-inline-comments */
+
+    assert.that(parser(data)).is.equalTo({
+      version: '2.0',
+      operation: 'CUPS-Get-Printers',
+      statusCode: undefined,
+      id: 1,
+      'operation-attributes-tag': {
+        'attributes-charset': 'utf-8',
+        'attributes-natural-language': 'en'
+      }
+    });
+    done();
+  });
 });
