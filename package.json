@@ -16,6 +16,9 @@
 		"name": "William Kapke",
 		"email": "william.kapke@gmail.com"
 	},
+	"dependencies": {
+		"debug": "^4.1.1"
+	},
 	"devDependencies": {
 		"concat-stream": "^1.6.0",
 		"mdns": "^2.3.3",
